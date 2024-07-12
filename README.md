@@ -16,13 +16,6 @@ One of the tokens Notional uses is Ethena's `USDe` and `sUSDe`. The user would b
 
 Once a user wants to exit `BaseStakingVault::_redeemFromNotional` is called. There are two options instant redemption or through the withdraw request functionality. If instant redemption is used `EthenaLib::_sellStakedUSDe` is called.
 ```javascript
-    function _executeInstantRedemption(
-        address /* account */,
-        uint256 vaultShares,
-        uint256 /* maturity */,
-        RedeemParams memory params
-    ) internal override returns (uint256 borrowedCurrencyAmount) {
-        uint256 sUSDeToSell = getStakingTokensForVaultShare(vaultShares);
 
         // Selling sUSDe requires special handling since most of the liquidity
         // sits inside a sUSDe/sDAI pool on Curve.
